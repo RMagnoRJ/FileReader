@@ -31,14 +31,8 @@ public class Reader {
 
 
 
-
-
-
-
-
     public void leitorMatriz() {
 
-        // String [][] tabela = new String[linhas][colunas];    int linhas, int colunas, String charString
         List<List<String>> matriz = new ArrayList<>();
         boolean ok = true;
 
@@ -54,19 +48,17 @@ public class Reader {
                 String[] separador = linha.split(";");
                 int colunasSep = separador.length;
 
-                // Índice para acessar as palavras da string
                 int index = 0;
 
-                // Preenchendo a matriz com dados usando dois laços for
                 for (int i = 0; i < linhaNum; i++) {
-                    List<String> newLinha = new ArrayList<>(); // Nova linha (ArrayList de Strings)
+                    List<String> newLinha = new ArrayList<>(); 
                     for (int j = 0; j < colunasSep; j++) {
                         if (index < separador.length) {
-                            newLinha.add(separador[index]); // Adiciona a palavra correspondente
+                            newLinha.add(separador[index]); 
                             index++;
                         }
                     }
-                    matriz.add(newLinha); // Adiciona a linha à matriz
+                    matriz.add(newLinha); 
                 }
             }
 
@@ -86,7 +78,7 @@ public class Reader {
                 System.out.println();
             }
         } else {
-            System.out.println("===//===");
+            System.out.println(" ");
         }
 
     }
@@ -182,34 +174,5 @@ public class Reader {
         } 
 
     }
-
-
-    public void imprimeTabela(int largura, String [][] tabela){
-
-
-        System.out.println("\n======================================================");
-        
-        for (int i = 0; i < tabela.length; i++){
-            for (int j = 0; j < tabela[i].length; j++){
-
-                if (i == 0){
-                    System.out.print("  | ");
-                    System.out.print(String.format("%-" + largura + "s", tabela[i][j].toUpperCase()));
-                } else {
-                    System.out.print("  | ");
-                    System.out.print(String.format("%-" + largura + "s", tabela[i][j]));
-                }
-            }
-            System.out.println(" |");
-            if (i == 0){
-                System.out.println("======================================================");
-            }
-        }
-        System.out.println("======================================================\n");
-
-    }
-
-
-
 
 }

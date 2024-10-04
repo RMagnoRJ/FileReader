@@ -12,7 +12,6 @@ public class Program {
     
     public static void main(String[] args) {
         
-        // 161 - Exercício com file
 
         System.out.println();
         System.out.println();
@@ -160,10 +159,9 @@ public class Program {
 
                 case 7:
                     on = false;
+                    System.out.println("\n### VOLTE SEMPRE ###\n");
                     break;
-         
             }
-
         }
         inn.close();
     }
