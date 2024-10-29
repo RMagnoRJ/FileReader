@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
+import Classes.Comparable.Services.GeneralFunctions;
 
 public class Writer {
     
@@ -183,6 +186,49 @@ public class Writer {
             }
         }
          
+    }
+
+    public void orgaqnizadorDeTexto() throws InterruptedException {
+
+        GeneralFunctions function = new GeneralFunctions();
+        List <String> meuArquivo = new ArrayList<>();
+
+        try{
+            inn = new Scanner(getPath());
+            System.out.println();
+            function.pause("LENDO ARQUIVO", '.',3,350);
+            System.out.println();
+            while (inn.hasNextLine()){
+                String linha = inn.nextLine();
+                meuArquivo.add(linha);
+            }
+        } catch (IOException error){
+            System.out.println("\n****************************");
+            System.out.println(  "Ops! " + error.getMessage());
+            System.out.println("****************************\n");
+        } 
+        Collections.sort(meuArquivo);
+        System.out.println();
+        function.pause("Imprimindo ", '>', 3, 100);
+        System.out.println(); System.out.println();
+        for (String linhas : meuArquivo){
+            System.out.println(linhas);
+        }
+
+        try (BufferedWriter bfwrt = new BufferedWriter(new FileWriter(getPath(), false))){
+    
+            for (int i = 0; i < meuArquivo.size(); i++){
+                bfwrt.write(meuArquivo.get(i));
+                bfwrt.newLine();
+            }
+            System.out.println();
+            function.pause("Salvando o texto", '.', 3, 350);
+            System.out.println();
+        } catch (IOException err){
+            System.out.println("Error = " + err.getMessage());
+            err.printStackTrace();
+        }
+
     }
 
 }

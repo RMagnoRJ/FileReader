@@ -10,7 +10,7 @@ import Classes.FileReader.Services.Functions;
 
 public class Program {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         
 
         System.out.println();
@@ -33,10 +33,11 @@ public class Program {
             System.out.print("\n[1] Ler um arquivo de texto (txt)\n" +
             "[2] Escrever um arquivo de texto (txt)\n" +
             "[3] Copiar um arquivo de texto - TXT\n" +
-            "[4] Ler uma tabela (csv)\n" +
-            "[5] Copiar uma tabela em arquivo - CSV\n" +
-            "[6] Pesquisar diretórios e arquivos\n"+
-            "[7] Encerrar programa\n" +
+            "[4] Organizar lista em ordem alfabética - TXT\n" +
+            "[5] Ler uma tabela (csv)\n" +
+            "[6] Copiar uma tabela em arquivo - CSV\n" +
+            "[7] Pesquisar diretórios e arquivos\n"+
+            "[8] Encerrar programa\n" +
             "\n> ");
             menu = inn.nextInt(); inn.nextLine();
             
@@ -108,6 +109,15 @@ public class Program {
                     break;
 
                 case 4:
+
+                    System.out.print("\n\nDigite o caminho do arquivo: ");
+                    String arquivo = inn.nextLine();
+                    Writer organizaTxt = new Writer(arquivo);
+                    organizaTxt.orgaqnizadorDeTexto();
+                    function.waitLine();
+                    break;
+
+                case 5:
                     System.out.print("\n\nDigite o caminho do arquivo: ");
                     String tabelaStr = inn.nextLine();
                     Reader leTabela = new Reader(tabelaStr);
@@ -115,7 +125,7 @@ public class Program {
                     function.waitLine();
                     break;
 
-                case 5:
+                case 6:
                     System.out.print("\n\nDigite o diretorio do arquivo ORIGINAL: ");
                     String tabelaOriginal = inn.nextLine();
                     System.out.print("\n\nDigite o diretorio para receber a copia:\n> ");
@@ -127,7 +137,7 @@ public class Program {
                     function.waitLine();
                     break;
 
-                case 6:
+                case 7:
 
                     System.out.print("\nSelecione: \n" +
                     "[1] Exibir apenas diretórios \n" +
@@ -157,7 +167,7 @@ public class Program {
                     }
                     break;
 
-                case 7:
+                case 8:
                     on = false;
                     System.out.println("\n### VOLTE SEMPRE ###\n");
                     break;
